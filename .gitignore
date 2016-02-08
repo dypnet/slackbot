@@ -2,3 +2,6 @@ bin/
 include/
 lib/
 pip-selfcheck.json
+python-rtmbot/
+token.txt
+__pycache__/
