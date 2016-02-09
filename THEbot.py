@@ -54,7 +54,7 @@ class RtmBot():
                     if limiter == True:
                         time.sleep(.1)
                         limiter = False
-                    message = str(output[1].encode('ascii','ignore'))[2:-1]
+                    message = str(output[1].encode('utf-8','ignore'))[2:-1]
                     channel.send_message("{}".format(message))
                     limiter = True
     def crons(self):
