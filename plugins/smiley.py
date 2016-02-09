@@ -27,4 +27,3 @@ def process_message(data):
                     "{}".format(smilies[randomNumber])])
 
 
-
