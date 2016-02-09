@@ -94,6 +94,7 @@ class Plugin():
             #this makes the plugin fail with stack trace in debug mode
             if debug:
                 try:
+                    print(eval("self.module."+function_name))
                     eval("self.module."+function_name)(data)
                 except:
                     dbg("problem in module {} {}".format(function_name, data))

@@ -2,23 +2,26 @@ import time
 import numpy
 crontable = []
 outputs = []
-smilies = [':)']
+smilies = []
+
+smileFile = open('plugins/smileFile','r')
+for smile in smileFile:
+    smilies.append(smile.strip())
+smileFile.close()
 
 def process_message(data):
-    print(data['channel'])
     if "C0K2UNFB2" in data['channel']:
 
-#        if ('.reload' in data['text']) and first:
-#            smileFile = open('smileFile','r')
-#            for smile in smileFile:
-#                smilies.append(smile.strip())
-#            smileFile.close()
-#            print('smileFile has been reloaded')
-#            first = False
+        if '.reload' in data['text']:
+            smileFile = open('plugins/smileFile','r')
+            for smile in smileFile:
+                smilies.append(smile.strip())
+            smileFile.close()
+            print('smileFile has been reloaded')
 
-        if '.smile' in data['text']:
+        elif '.smile' in data['text']:
             randomNumber = numpy.random.random_integers(len(smilies)-1)
-            #print('Sending smile number {i}'.format(randomNumber))
+            print('Sending smile number {i}'.format(randomNumber))
             outputs.append([data['channel'],\
                     "{}".format(smilies[randomNumber])])
 
