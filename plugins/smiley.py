@@ -1,3 +1,4 @@
+#co
 import time
 import numpy
 crontable = []
@@ -21,7 +22,7 @@ def process_message(data):
 
         elif '.smile' in data['text']:
             randomNumber = numpy.random.random_integers(len(smilies)-1)
-            print('Sending smile number {i}'.format(randomNumber))
+            print('Sending smile number {}'.format(randomNumber))
             outputs.append([data['channel'],\
                     "{}".format(smilies[randomNumber])])
 
