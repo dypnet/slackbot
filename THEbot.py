@@ -177,6 +177,7 @@ if __name__ == "__main__":
 
     bot = RtmBot(token)
     bot.bot_plugins.append(Plugin('smiley'))
+    bot.bot_plugins.append(Plugin('gif'))
 
     site_plugins = []
     files_currently_downloading = []
