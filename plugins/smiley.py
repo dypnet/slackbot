@@ -5,6 +5,7 @@ outputs = []
 smilies = []
 
 def process_message(data):
+<<<<<<< HEAD
     #if channel in data['channel']:
         text = data['text']
         channel = data['channel']
@@ -18,6 +19,22 @@ def process_message(data):
                 randomNumber = numpy.random.random_integers(len(smilies)-1)
                 print('Sending smile {} to {}'.format(smilies[randomNumber],channel))
                 outputs.append([channel,"{}".format(smilies[randomNumber])])
+=======
+#    if "C0K2UNFB2" in data['channel']:
+    text = data['text']
+    channel = data['channel']
+
+    if 'smile' in text or '..' in text:
+
+        if 'reload' in text: 
+            reload()
+            print('smileFile has been reloaded')
+    
+        elif ('smile' in text or '..' in text) and not '...' in text:
+            randomNumber = numpy.random.random_integers(len(smilies)-1)
+            print('Sending smile {} to {}'.format(smilies[randomNumber],channel))
+            outputs.append([channel,"{}".format(smilies[randomNumber])])
+>>>>>>> gif
 
 def reload():
    del smilies[:]
