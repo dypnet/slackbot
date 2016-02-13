@@ -3,6 +3,7 @@ import numpy
 crontable = []
 outputs = []
 gifs = []
+random = []
 
 def process_message(data):
 
@@ -20,8 +21,12 @@ def process_message(data):
             outputText = gifs[0][0]
             for gif in gifs[1:]:
                 outputText += ', '+gif[0]
-
             outputs.append([channel,"{}".format(outputText)])
+
+        elif 'random' in text:
+            randomNumber = numpy.random.random_integers(len(random)-1)
+            print('Sending random gif number {}'.format(randomNumber))
+            outputs.append([channel,"{}".format(random[randomNumber])])
 
         else:
             for gif in gifs:
@@ -30,12 +35,16 @@ def process_message(data):
                     outputs.append([channel,"{}".format(gif[1])])
 
 
+
 def reload():
-  
+
    del gifs[:]
    gifFile = open('plugins/reactionGifFile','r')
-   for gif in gifFile:
+   gifRandFile = open('plugins/randomGifFile','r')
+
+   for gif,rand in zip(gifFile,gifRandFile):
        gifs.append(gif.strip().split(','))
+       random.append(rand.strip())
    gifFile.close()
 
 reload()
