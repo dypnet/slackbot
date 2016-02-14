@@ -44,7 +44,8 @@ def reload():
 
    for gif in gifFile:
        gifs.append(gif.strip().split(','))
-    for gif in gifRandFile: 
+
+   for gif in gifRandFile: 
        random.append(gif.strip())
 
    gifFile.close()
