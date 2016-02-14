@@ -15,7 +15,7 @@ def process_message(data):
         print(text)
         if 'reload' in text:
             reload()
-            print('smileFile has been reloaded')
+            print('gifFiles has been reloaded')
 
         elif 'list' in text:
             outputText = gifs[0][0]
@@ -42,9 +42,11 @@ def reload():
    gifFile = open('plugins/reactionGifFile','r')
    gifRandFile = open('plugins/randomGifFile','r')
 
-   for gif,rand in zip(gifFile,gifRandFile):
+   for gif in gifFile:
        gifs.append(gif.strip().split(','))
-       random.append(rand.strip())
+    for gif in gifRandFile: 
+       random.append(gif.strip())
+
    gifFile.close()
 
 reload()
