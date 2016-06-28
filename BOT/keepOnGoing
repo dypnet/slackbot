@@ -1,0 +1,5 @@
+while true
+do
+  ../slackBot/bin/python THEbot.py
+  sleep 30s
+done
